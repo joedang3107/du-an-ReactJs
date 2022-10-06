@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Table, Tag, Space, Layout, Input } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProjectsAction } from '../../../../redux/actions/projects';
-import { PfmPage } from '../../pfm-page/pfmPage'
+import { PfmPage } from '../../pfm-page/pfmPage1'
 import { useHistory } from "react-router"
 import { Link, Switch, Route, Router, } from 'react-router-dom'
 import { debounce } from '../../../../helpers'
@@ -63,7 +63,7 @@ export const Projects = (props) => {
 
     const performance = (data) => {
         const { id } = data
-        history.push(`/pfm-page/${id}`)
+        history.push(`/project/performance/${id}`)
     }
 
 

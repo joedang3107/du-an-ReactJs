@@ -24,7 +24,7 @@ server.post('/auth/login', (req, res) => {
     const { username, password } = req.body
     if (username === "admin" && password === "A123") {
         // public data
-        let token = jwt.sign({ username, role: ["read_users"] }, 'this_is_a_private_key');
+        let token = jwt.sign({ username, role: ["read_users"] }, 'this_is_a_private_key', { expiresIn: 8 * 60 * 60 });
         res.jsonp({
             success: true,
             username: username,
@@ -49,7 +49,6 @@ server.use((req, res, next) => {
         let token = data[1]
         try {
             let decoded = jwt.verify(token, 'this_is_a_private_key');
-
             if (decoded.username) {
                 next()
             } else {
@@ -67,6 +66,6 @@ server.use((req, res, next) => {
 
 // Use default router
 server.use(router)
-server.listen(3001, () => {
+server.listen(3001,() => {
     console.log('JSON Server is running at port 3001')
 })

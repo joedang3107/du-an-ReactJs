@@ -10,7 +10,52 @@ export const FETCH_PROJECTS_FAILED = "FETCH_PROJECTS_FAILED"
 export const FETCH_KPI = "FETCH_KPI"
 export const FETCH_KPI_SUCCEEDED = "FETCH_KPI_SUCCEEDED"
 export const FETCH_KPI_FAILED = "FETCH_KPI_FAILED"
-// pfm
-export const ADD_PFM = "ADD_PFM"
-export const ADD_PFM_SUCCEEDED = "ADD_PFM_SUCCEEDED"
-export const ADD_PFM_FAILED = "ADD_PFM_FAILED"
+
+// fetch pfms
+
+export const FETCH_PFM_1 = "FETCH_PFM_1"
+export const FETCH_PFM_1_SUCCEEDED = "FETCH_PFM_1_SUCCEEDED"
+export const FETCH_PFM_1_FAILED = "FETCH_PFM_1_FAILED"
+
+export const FETCH_PFM_2 = "FETCH_PFM_2"
+export const FETCH_PFM_2_SUCCEEDED = "FETCH_PFM_2_SUCCEEDED"
+export const FETCH_PFM_2_FAILED = "FETCH_PFM_2_FAILED"
+
+export const FETCH_PFM_3 = "FETCH_PFM_3"
+export const FETCH_PFM_3_SUCCEEDED = "FETCH_PFM_3_SUCCEEDED"
+export const FETCH_PFM_3_FAILED = "FETCH_PFM_3_FAILED"
+
+export const FETCH_PFM_4 = "FETCH_PFM_4"
+export const FETCH_PFM_4_SUCCEEDED = "FETCH_PFM_4_SUCCEEDED"
+export const FETCH_PFM_4_FAILED = "FETCH_PFM_4_FAILED"
+
+// fetch username
+
+export const FETCH_USER = "FETCH_USER"
+export const FETCH_USER_SUCCEEDED = "FETCH_USER_SUCCEEDED"
+export const FETCH_USER_FAILED = "FETCH_USER_FAILED"
+
+
+// add pfm
+export const ADD_PFM_1 = "ADD_PFM_1"
+export const ADD_PFM_1_SUCCEEDED = "ADD_PFM_1_SUCCEEDED"
+export const ADD_PFM_1_FAILED = "ADD_PFM_1_FAILED"
+
+export const ADD_PFM_2 = "ADD_PFM_2"
+export const ADD_PFM_2_SUCCEEDED = "ADD_PFM_2_SUCCEEDED"
+export const ADD_PFM_2_FAILED = "ADD_PFM_2_FAILED"
+
+export const ADD_PFM_3 = "ADD_PFM_3"
+export const ADD_PFM_3_SUCCEEDED = "ADD_PFM_3_SUCCEEDED"
+export const ADD_PFM_3_FAILED = "ADD_PFM_3_FAILED"
+
+export const ADD_PFM_4 = "ADD_PFM_4"
+export const ADD_PFM_4_SUCCEEDED = "ADD_PFM_4_SUCCEEDED"
+export const ADD_PFM_4_FAILED = "ADD_PFM_4_FAILED"
+
+
+// delete pfm
+
+export const DELETE_PFM_1 = "DELETE_PFM_1"
+export const DELETE_PFM_1_SUCCEEDED = "DELETE_PFM_1_SUCCEEDED"
+export const DELETE_PFM_1_FAILED = "DELETE_PFM_1_FAILED"

@@ -6,7 +6,7 @@ let initialState = {
         loading: false,
         data: [],
         message: "",
-        total: 0
+        // total: 0
     },
 }
 

@@ -9,6 +9,7 @@ import './login.css'
 import store from '../../../redux/store';
 import { LoginAction } from '../../../redux/actions/authen';
 import { connect } from 'react-redux';
+import { setAxiosToken } from '../../../apis';
 
 const { Text } = Typography;
 
@@ -23,6 +24,7 @@ const LoginPage = ({ isLoggedIn, message, isSubmitting, login }) => {
 
     useEffect(() => {
         if (isLoggedIn) {
+            setAxiosToken()
             history.push('/dashboard')
         }
     }, [isLoggedIn])

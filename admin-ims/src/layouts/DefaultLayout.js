@@ -64,12 +64,12 @@ export const DefaultLayout = ({ routers }) => {
                                 <SubMenu key={menu.path} icon={menu.icon} title={menu.title}>
                                     {
                                         menu.children.map(subMenu => {
-                                            return <Menu.Item key={subMenu.path} icon={subMenu.icon}><Link to={subMenu.path}></Link>{subMenu.title}</Menu.Item>
+                                            return !subMenu.hidden && <Menu.Item key={subMenu.path} icon={subMenu.icon}><Link to={subMenu.path}></Link>{subMenu.title}</Menu.Item>
                                         })
                                     }
                                 </SubMenu>
                             ) : (
-                                <Menu.Item key={menu.path}><Link to={menu.path}></Link>{menu.title}</Menu.Item>
+                                !menu.hidden && <Menu.Item key={menu.path}><Link to={menu.path}></Link>{menu.title}</Menu.Item>
                             )
                         })
                         }

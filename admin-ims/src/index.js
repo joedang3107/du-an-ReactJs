@@ -12,7 +12,7 @@ import './index.css';
 let token = getToken()
 
 if (token) {
-  // console.log(token);
+  console.log(token);
   let decodeData = jwt.decode(token)
   console.log(decodeData);
 
@@ -29,7 +29,7 @@ if (token) {
       }
     })
   } else {
-    // alert("expired")
+    // alert("expiredired")
     // redirect to login
   }
 }
