@@ -1,4 +1,4 @@
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
+import { call, put, takeEvery } from 'redux-saga/effects'
 import * as authApi from '../../apis/index'
 import { saveToken } from '../../helpers/storage';
 import * as type from '../const/index'
@@ -14,9 +14,9 @@ function* login(action) {
             username: data.username,
             token: data.token
           }});
-        } else {
+        } else  {
           yield put({type: type.USER_LOGIN_FAILED, message: data.message});
-        }
+        } 
     } catch (e) {
           yield put({type: type.USER_LOGIN_FAILED, message: e.message});
     }

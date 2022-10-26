@@ -14,6 +14,23 @@ let initialState = {
         message: "",
         total: 0
     },
+    deletePfm3: {
+        deletePfmLoading: false,
+        deleteSuccess: false,
+        message: "",
+    },
+    editPfm3: {
+        editPfmLoading: false,
+        data: [],
+        editSuccess: false,
+        message: "",
+    },
+    pfm: {
+        data: {},
+        loading: false,
+        success: false,
+        message: "",
+    }
 }
 
 function pfm3Reducer(state = initialState, action) {
@@ -52,8 +69,8 @@ function pfm3Reducer(state = initialState, action) {
                     message: action.message,
                 }
             }
-    
-        case type.FETCH_PFM_3:
+
+        case type.FETCH_PFMS_3:
             return {
                 ...state,
                 fetchPfm3: {
@@ -64,7 +81,7 @@ function pfm3Reducer(state = initialState, action) {
                 }
             }
 
-        case type.FETCH_PFM_3_SUCCEEDED:
+        case type.FETCH_PFMS_3_SUCCEEDED:
             return {
                 ...state,
                 fetchPfm3: {
@@ -75,7 +92,7 @@ function pfm3Reducer(state = initialState, action) {
                 }
             }
 
-        case type.FETCH_PFM_3_FAILED:
+        case type.FETCH_PFMS_3_FAILED:
             return {
                 ...state,
                 fetchPfm3: {
@@ -83,6 +100,99 @@ function pfm3Reducer(state = initialState, action) {
                     data: [],
                     message: action.message,
                     total: 0
+                }
+            }
+        case type.DELETE_PFM_3:
+            return {
+                ...state,
+                deletePfm3: {
+                    deletePfmLoading: true,
+                    deleteSuccess: false,
+                    message: "",
+                }
+            }
+
+        case type.DELETE_PFM_3_SUCCEEDED:
+            return {
+                ...state,
+                deletePfm3: {
+                    deletePfmLoading: false,
+                    deleteSuccess: true,
+                    message: "",
+                }
+            }
+
+        case type.DELETE_PFM_3_FAILED:
+            return {
+                ...state,
+                deletePfm3: {
+                    deletePfmLoading: false,
+                    deleteSuccess: false,
+                    message: action.message,
+                }
+            }
+        case type.EDIT_PFM_3:
+            return {
+                ...state,
+                editPfm3: {
+                    editPfmLoading: true,
+                    data: [],
+                    editSuccess: false,
+                    message: "",
+                }
+            }
+
+        case type.EDIT_PFM_3_SUCCEEDED:
+            return {
+                ...state,
+                editPfm3: {
+                    editPfmLoading: false,
+                    data: action.data,
+                    editSuccess: true,
+                    message: "Edit pfm successed",
+                }
+            }
+
+        case type.EDIT_PFM_3_FAILED:
+            return {
+                ...state,
+                editPfm3: {
+                    editPfmLoading: false,
+                    data: [],
+                    editSuccess: false,
+                    message: action.message,
+                }
+            }
+        case type.FETCH_PFM_3:
+            return {
+                ...state,
+                pfm: {
+                    data: {},
+                    loading: true,
+                    success: false,
+                    message: "",
+                }
+            }
+
+        case type.FETCH_PFM_3_SUCCEEDED:
+            return {
+                ...state,
+                pfm: {
+                    data: action.payload.data,
+                    loading: false,
+                    success: true,
+                    message: "",
+                }
+            }
+
+        case type.FETCH_PFM_3_FAILED:
+            return {
+                ...state,
+                pfm: {
+                    data: {},
+                    loading: false,
+                    success: false,
+                    message: action.message,
                 }
             }
         default:

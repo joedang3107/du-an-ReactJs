@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Table, Tag, Space, Layout, Input } from 'antd';
+import { Table, Input } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProjectsAction } from '../../../../redux/actions/projects';
-import { PfmPage } from '../../pfm-page/pfmPage1'
 import { useHistory } from "react-router"
-import { Link, Switch, Route, Router, } from 'react-router-dom'
 import { debounce } from '../../../../helpers'
 
-const { Header, Content, Sider } = Layout;
+import './project.css'
+
 const { Search } = Input;
 /**
 * @author
@@ -66,16 +65,14 @@ export const Projects = (props) => {
         history.push(`/project/performance/${id}`)
     }
 
+    const { loading, data, total } = useSelector(state => {
+        return state.projects.projects
+    })
 
     const [pageSize, setPageSize] = useState(2)
     const [current, setCurrent] = useState(1)
     const [keyword, setKeyword] = useState("")
 
-    const { loading, message, data, total } = useSelector(state => {
-        return state.projects.projects
-    })
-
-    // search
     let dispatch = useDispatch()
 
     const onPageChange = (value) => {
@@ -83,21 +80,21 @@ export const Projects = (props) => {
     }
 
     const onSearch = value => {
-        searchDebounce({ keyword: value })
+        searchDebounce(value)
     }
 
-    const onSearchChange = event => {
+    const onSearchChange = (event) => {
+        console.log(event);
         setTimeout(() => {
             let value = event.target.value
-            searchDebounce({ keyword: value })
+            searchDebounce(value)
         }, 500);
     }
 
-    const search = ({ keyword }) => {
+    const search = (value) => {
         setCurrent(1)
-        // lưu lại giá trị của keyword
-        setKeyword(keyword)
-        dispatch(fetchProjectsAction({ _page: current, _limit: pageSize, keyword }))
+        setKeyword(value)
+        dispatch(fetchProjectsAction({ _page: current, _limit: pageSize, keyword: value }))
     }
 
     const searchDebounce = debounce(search, 500)
@@ -107,7 +104,7 @@ export const Projects = (props) => {
     }, [current, pageSize])
 
     return (
-        <div id="project-list">
+        <div>
             <div className="search-input">
                 <Search placeholder="input search text" onSearch={onSearch} onChange={onSearchChange} enterButton />
             </div>

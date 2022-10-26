@@ -9,6 +9,7 @@ import jwt from 'jsonwebtoken'
 
 import './index.css';
 
+
 let token = getToken()
 
 if (token) {
@@ -34,9 +35,11 @@ if (token) {
   }
 }
 
+
 ReactDOM.render(
   // <React.StrictMode>
   <Provider store={store}>
+    {alert("username: admin, password: 12345")}
     <App />
   </Provider>
   /* </React.StrictMode> */

@@ -8,16 +8,28 @@ let initialState = {
         data: [],
         message: "",
     },
-    deletePfm1: {
-        deletePfmLoading: false,
-        success: false,
-        message: "",
-    },
     fetchPfm1: {
         loading: false,
         data: [],
         message: "",
         total: 0
+    },
+    deletePfm1: {
+        deletePfmLoading: false,
+        deleteSuccess: false,
+        message: "",
+    },
+    editPfm1: {
+        editPfmLoading: false,
+        data: [],
+        editSuccess: false,
+        message: "",
+    },
+    pfm: {
+        data: {},
+        loading: false,
+        success: false,
+        message: "",
     },
 }
 
@@ -56,36 +68,7 @@ function pfm1Reducer(state = initialState, action) {
                     message: action.message,
                 }
             }
-        case type.DELETE_PFM_1:
-            return {
-                ...state,
-                deletePfm1: {
-                    deletePfmLoading: true,
-                    success: false,
-                    message: "",
-                }
-            }
-
-        case type.DELETE_PFM_1_SUCCEEDED:
-            return {
-                ...state,
-                deletePfm1: {
-                    deletePfmLoading: false,
-                    success: true,
-                    message: "",
-                }
-            }
-
-        case type.DELETE_PFM_1_FAILED:
-            return {
-                ...state,
-                deletePfm1: {
-                    deletePfmLoading: false,
-                    success: false,
-                    message: action.message,
-                }
-            }
-        case type.FETCH_PFM_1:
+        case type.FETCH_PFMS_1:
             return {
                 ...state,
                 fetchPfm1: {
@@ -96,7 +79,7 @@ function pfm1Reducer(state = initialState, action) {
                 }
             }
 
-        case type.FETCH_PFM_1_SUCCEEDED:
+        case type.FETCH_PFMS_1_SUCCEEDED:
             return {
                 ...state,
                 fetchPfm1: {
@@ -107,7 +90,7 @@ function pfm1Reducer(state = initialState, action) {
                 }
             }
 
-        case type.FETCH_PFM_1_FAILED:
+        case type.FETCH_PFMS_1_FAILED:
             return {
                 ...state,
                 fetchPfm1: {
@@ -117,6 +100,100 @@ function pfm1Reducer(state = initialState, action) {
                     total: 0
                 }
             }
+        case type.DELETE_PFM_1:
+            return {
+                ...state,
+                deletePfm1: {
+                    deletePfmLoading: true,
+                    deleteSuccess: false,
+                    message: "",
+                }
+            }
+
+        case type.DELETE_PFM_1_SUCCEEDED:
+            return {
+                ...state,
+                deletePfm1: {
+                    deletePfmLoading: false,
+                    deleteSuccess: true,
+                    message: "",
+                }
+            }
+
+        case type.DELETE_PFM_1_FAILED:
+            return {
+                ...state,
+                deletePfm1: {
+                    deletePfmLoading: false,
+                    deleteSuccess: false,
+                    message: action.message,
+                }
+            }
+        case type.EDIT_PFM_1:
+            return {
+                ...state,
+                editPfm1: {
+                    editPfmLoading: true,
+                    data: [],
+                    editSuccess: false,
+                    message: "",
+                }
+            }
+
+        case type.EDIT_PFM_1_SUCCEEDED:
+            return {
+                ...state,
+                editPfm1: {
+                    editPfmLoading: false,
+                    data: action.data,
+                    editSuccess: true,
+                    message: "Edit pfm successed",
+                }
+            }
+
+        case type.EDIT_PFM_1_FAILED:
+            return {
+                ...state,
+                editPfm1: {
+                    editPfmLoading: false,
+                    data: [],
+                    editSuccess: false,
+                    message: action.message,
+                }
+            }
+        case type.FETCH_PFM_1:
+            return {
+                ...state,
+                pfm: {
+                    data: {},
+                    loading: true,
+                    success: false,
+                    message: "",
+                }
+            }
+
+        case type.FETCH_PFM_1_SUCCEEDED:
+            return {
+                ...state,
+                pfm: {
+                    data: action.payload.data,
+                    loading: false,
+                    success: true,
+                    message: "",
+                }
+            }
+
+        case type.FETCH_PFM_1_FAILED:
+            return {
+                ...state,
+                pfm: {
+                    data: {},
+                    loading: false,
+                    success: false,
+                    message: action.message,
+                }
+            }
+
         default:
             return state
     }

@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
 
-import { Layout, Breadcrumb, Menu, message, Dropdown, Space } from 'antd';
-import { DownOutlined, UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
+import { Layout, Breadcrumb, Menu, message, Dropdown, Space, Tooltip } from 'antd';
+import { UserOutlined, LogoutOutlined } from '@ant-design/icons';
 
 import './layout.css'
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link, Route, Switch, useHistory, Redirect } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteToken } from '../helpers/storage';
+import { FetchUserAction } from '../redux/actions/user';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -15,29 +18,41 @@ const { Header, Content, Sider } = Layout;
 
 export const DefaultLayout = ({ routers }) => {
 
-    // function handleButtonClick(e) {
-    //     message.info('Click on left button.');
-    //     console.log('click left button', e);
-    // }
+    const dispatch = useDispatch()
+    const history = useHistory()
+    //logout
 
-    function handleMenuClick(e) {
-        message.info('Click on menu item.');
-        console.log('click', e);
+    const logout = () => {
+        deleteToken()
+        window.location.href = "/"
+    }
+
+    const goToProfile = () => {
+        history.push('/profile')
     }
 
     const menu = (
-        <Menu onClick={handleMenuClick}>
-            <Menu.Item key="1" icon={<UserOutlined />}>
-                1st menu item
+        <Menu >
+            <Menu.Item key="1" icon={<UserOutlined />} onClick={goToProfile}>
+                Profile
             </Menu.Item>
-            <Menu.Item key="2" icon={<UserOutlined />}>
-                2nd menu item
-            </Menu.Item>
-            <Menu.Item key="3" icon={<UserOutlined />}>
-                3rd menu item
+            <Menu.Item key="2" icon={<LogoutOutlined />} onClick={logout}>
+                Logout
             </Menu.Item>
         </Menu>
-    );
+    )
+
+    // fetch username
+
+    const { username } = useSelector((state) => {
+        return state.user.fetchUser
+    })
+
+    useEffect(() => {
+        dispatch(FetchUserAction())
+    }, [])
+
+
 
     return (
         <Layout style={{ minHeight: '100vh' }}>
@@ -47,7 +62,7 @@ export const DefaultLayout = ({ routers }) => {
                 </div>
                 <Space wrap>
                     <Dropdown.Button overlay={menu} icon={<UserOutlined />}>
-                        Dropdown
+                        {username}
                     </Dropdown.Button>
                 </Space>
             </Header>
@@ -69,7 +84,7 @@ export const DefaultLayout = ({ routers }) => {
                                     }
                                 </SubMenu>
                             ) : (
-                                !menu.hidden && <Menu.Item key={menu.path}><Link to={menu.path}></Link>{menu.title}</Menu.Item>
+                                !menu.hidden && <Menu.Item key={menu.path} icon={menu.icon}><Link to={menu.path}></Link>{menu.title}</Menu.Item>
                             )
                         })
                         }
@@ -100,6 +115,9 @@ export const DefaultLayout = ({ routers }) => {
                                     )
                                 })
                             }
+                            <Route path="/">
+                                <Redirect to="/page404" />
+                            </Route>
                         </Switch>
                     </Content>
                 </Layout>

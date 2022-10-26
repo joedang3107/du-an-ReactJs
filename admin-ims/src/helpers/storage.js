@@ -6,4 +6,8 @@ function getToken () {
     return localStorage.getItem("token")
 }
 
-export { saveToken, getToken }
+function deleteToken () {
+    localStorage.removeItem("token")
+}
+
+export { saveToken, getToken, deleteToken }
