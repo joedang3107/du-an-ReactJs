@@ -99,125 +99,116 @@
       "conditions": ">"
     }
   ],
+  "password": {
+    "oldpassword": "1234",
+    "newPassword": "12345",
+    "currentPassword": "12345"
+  },
   "user": [
     {
-      "id": "1",
-      "name": "Đặng Hữu Thiện"
+      "username": "Đặng Hữu Thiện",
+      "age": 26,
+      "address": "Hà Nội",
+      "mail": "huuthiennd@gmail.com",
+      "gender": "Male"
     }
   ],
   "performance1": [
     {
-      "id": "1",
-      "role": "1",
-      "startTime": "1",
-      "endTime": "1",
-      "pfm": "1"
-    },
-    {
-      "id": "2",
-      "role": "2",
-      "startTime": "2",
-      "endTime": "2",
-      "pfm": "2"
-    },
-    {
-      "date": "2022-10-05T08:45:32.541Z",
+      "id": 12,
+      "date": "2022-10-02T08:55:06.374Z",
       "name": "Đặng Hữu Thiện",
-      "role": "Annotator",
+      "role": "Modify",
+      "startTime": "08:00",
+      "endTime": "17:00",
+      "pfm": "19"
+    },
+    {
+      "date": "2022-10-26T07:39:27.330Z",
+      "name": "123",
+      "role": "QA",
+      "startTime": "08:00",
+      "endTime": "17:00",
+      "pfm": "6",
+      "id": 13
+    }
+  ],
+  "performance2": [
+    {
+      "date": "2022-10-22T10:48:52.922Z",
+      "name": "Đặng Hữu Thiện",
+      "role": "Modify",
+      "startTime": "08:00",
+      "endTime": "17:00",
+      "pfm": "77",
+      "id": 12
+    },
+    {
+      "date": "2022-10-24T08:26:01.940Z",
+      "name": "Đặng Hữu Thiện",
+      "role": "QA",
       "startTime": "08:00",
       "endTime": "17:00",
       "pfm": "100",
-      "id": "sUAuXuI"
+      "id": 13
     },
     {
-      "date": "2022-10-05T08:47:56.845Z",
+      "date": "2022-10-26T08:28:23.382Z",
       "name": "Đặng Hữu Thiện",
-      "role": "Annotator",
+      "role": "Modify",
+      "startTime": "08:00",
+      "endTime": "17:00",
+      "pfm": "6",
+      "id": 14
+    }
+  ],
+  "performance3": [
+    {
+      "date": "2022-10-09T07:20:20.719Z",
+      "name": "Đặng Hữu Thiện",
+      "role": "Modify",
       "startTime": "08:00",
       "endTime": "17:00",
       "pfm": "100",
-      "id": "C3WfjUV"
+      "id": 2
     },
     {
-      "date": "2022-10-05T08:47:56.845Z",
+      "id": 3,
+      "date": "2022-10-17T07:22:20.554Z",
       "name": "Đặng Hữu Thiện",
-      "role": "Annotator",
+      "role": "QA",
       "startTime": "08:00",
       "endTime": "17:00",
-      "pfm": "100",
-      "id": "ZqayDkQ"
+      "pfm": "12124141"
+    }
+  ],
+  "performance4": [
+    {
+      "date": "2022-10-04T07:37:59.500Z",
+      "name": "Đặng Hữu Thiện",
+      "role": "Modify",
+      "startTime": "08:00",
+      "endTime": "17:00",
+      "pfm": "13124414",
+      "id": 3
     },
     {
-      "date": "2022-10-05T08:54:33.327Z",
+      "date": "2022-10-04T07:37:59.500Z",
       "name": "Đặng Hữu Thiện",
-      "role": "Annotator",
+      "role": "Modify",
       "startTime": "08:00",
       "endTime": "17:00",
-      "pfm": "100",
-      "id": "9dQU-w-"
+      "pfm": "13124414",
+      "id": 5
     },
     {
-      "date": "2022-10-05T08:57:35.978Z",
+      "date": "2022-10-10T07:38:45.897Z",
       "name": "Đặng Hữu Thiện",
-      "role": "Annotator",
+      "role": "Modify",
       "startTime": "08:00",
       "endTime": "17:00",
-      "pfm": "100",
-      "id": "8f4aCV1"
-    },
-    {
-      "date": "2022-10-05T08:59:16.826Z",
-      "name": "Đặng Hữu Thiện",
-      "role": "Annotator",
-      "startTime": "08:00",
-      "endTime": "17:00",
-      "pfm": "100",
-      "id": "vltJRhK"
-    },
-    {
-      "date": "2022-10-05T10:16:40.978Z",
-      "name": "Đặng Hữu Thiện",
-      "role": "Annotator",
-      "startTime": "08:00",
-      "endTime": "17:00",
-      "pfm": "100",
-      "id": "OKCqTv7"
-    },
-    {
-      "date": "2022-10-05T10:16:40.978Z",
-      "name": "Đặng Hữu Thiện",
-      "role": "Annotator",
-      "startTime": "08:00",
-      "endTime": "17:00",
-      "pfm": "100",
-      "id": "WBuJuCq"
-    },
-    {
-      "date": "2022-10-05T10:22:27.259Z",
-      "name": "Đặng Hữu Thiện",
-      "role": "Annotator",
-      "startTime": "08:00",
-      "endTime": "17:00",
-      "pfm": "100",
-      "id": "8aBmqiV"
-    },
-    {
-      "date": "2022-10-05T10:23:22.812Z",
-      "name": "Đặng Hữu Thiện",
-      "role": "Annotator",
-      "startTime": "08:00",
-      "endTime": "17:00",
-      "pfm": "100",
-      "id": "97bjvJ6"
-    },
-    {
-      "date": "2022-10-05T16:40:18.112Z",
-      "name": "Đặng Hữu Thiện",
-      "role": "Annotator",
-      "startTime": "08:00",
-      "endTime": "17:00",
-      "pfm": "100",
-      "id": "RUTrk_9"
+      "pfm": "1311",
+      "id": 6
     }
   ]
 }
